@@ -1,10 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 
 class MapScreen extends StatefulWidget {
   @override
@@ -53,30 +49,7 @@ class _MapScreenState extends State<MapScreen> {
 
       ) ,
 
-      // Padding(
-      //   padding: const EdgeInsets.all(16.0),
-      //   child: Column(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       // Show Coordinates
-      //       Text(
-      //         _coordinates,
-      //         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      //       ),
-      //       const SizedBox(height: 20),
-      //
-      //       // Show Extracted Location Info
-      //       Text("📍 Place: $placeName",
-      //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-      //       Text("🏙️ Locality: $locality",
-      //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-      //       Text("🏛️ State: $administrativeArea",
-      //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-      //       Text("🌍 Country: $country",
-      //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-      //     ],
-      //   ),
-      // ),
+
     );
   }
 }
