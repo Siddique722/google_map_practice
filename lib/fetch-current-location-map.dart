@@ -19,10 +19,12 @@ class _UserCurrentLocationMapState extends State<UserCurrentLocationMap> {
   );
 
   Future<Position> getUserCurrentLocation() async {
-    await Geolocator.requestPermission().then((value) {}).catchError((error) {
+    await Geolocator.requestPermission().then((value) {
+      
+    }).catchError((error) {
       print("Error: $error");
     });
-
+  //marker=await Geolocator.getCurrentPosition();
     return await Geolocator.getCurrentPosition();
   }
 
@@ -45,10 +47,10 @@ class _UserCurrentLocationMapState extends State<UserCurrentLocationMap> {
           LatLng userLatLng = LatLng(position.latitude, position.longitude);
 
           setState(() {
-            _markers.clear();
+            //_markers.clear();
             _markers.add(
               Marker(
-                markerId: MarkerId('currentLocation'),
+                markerId: MarkerId('1'),
                 position: userLatLng,
                 infoWindow: InfoWindow(title: 'My current location'),
               ),

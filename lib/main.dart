@@ -17,6 +17,60 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:
+      // Scaffold(
+      //   body:
+      //   SingleChildScrollView(
+      //     scrollDirection: Axis.horizontal,
+      //     child: Row(
+      //       spacing: 10,
+      //       children: [
+      //       Container(
+      //         height: 270,
+      //         width: 160,
+      //         decoration: BoxDecoration(
+      //           color: Colors.blue,
+      //           borderRadius: BorderRadius.circular(10)
+      //
+      //         ),
+      //         child: Column(
+      //           children: [
+      //             SizedBox(height: 50,),
+      //             CircleAvatar(child: Text('1'),),
+      //            SizedBox(height: 30,),
+      //             // Spacer(),
+      //             Text('data')
+      //           ],
+      //         ),
+      //       ),
+      //
+      //       Container(
+      //         height: 140,
+      //         width: 250,
+      //         color: Colors.red,
+      //       ),
+      //       Container(
+      //         height: 140,
+      //         width: 250,
+      //         color: Colors.blue,
+      //       ),
+      //       Container(
+      //         height: 140,
+      //         width: 250,
+      //         color: Colors.purple,
+      //       ),
+      //       Container(
+      //         height: 140,
+      //         width: 250,
+      //         color: Colors.blue,
+      //       ),
+      //       Container(
+      //         height: 140,
+      //         width: 250,
+      //         color: Colors.orange,
+      //       ),
+      //     ],),
+      //   ),
+      // )
 
 
       UserCurrentLocationMap(),
