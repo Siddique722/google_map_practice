@@ -5,6 +5,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:untitled/fetch-coordinates.dart';
+import 'package:untitled/fetch-current-location-map.dart';
 void main(){
   runApp(MyApp());
 }
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       home:
 
 
-      LocationScreen(),
+      UserCurrentLocationMap(),
     );
   }
 }
