@@ -133,7 +133,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            backgroundColor: const Color.fromARGB(255, 37, 45, 52),
+            backgroundColor: const Color.fromARGB(255, 37, 45, 7),
             appBar: AppBar(
               backgroundColor: const Color.fromARGB(255, 55, 110, 110),
               actions: [
