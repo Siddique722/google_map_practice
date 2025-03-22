@@ -121,6 +121,10 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:untitled/get-class.dart';
 
 void main() {
   runApp(MyApp());
@@ -130,267 +134,358 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return
+      GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            backgroundColor: const Color.fromARGB(255, 37, 45, 7),
-            appBar: AppBar(
-              backgroundColor: const Color.fromARGB(255, 55, 110, 110),
-              actions: [
-                Icon(
-                  Icons.add_circle,
-                  color: Colors.white,
-                  size: 40,
-                ),
-                SizedBox(width: 40),
-                Icon(Icons.search, color: Colors.white, size: 40),
-                SizedBox(width: 40),
-                Icon(Icons.message_sharp, color: Colors.white, size: 40),
-                SizedBox(width: 40),
-              ],
-              title: Text(
-                'facebook',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              centerTitle: false,
-            ),
-            body: Column(
-              //SingleChildScrollView(scrollDirection: Axis.horizontal),
-              children: [
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(height: 10),
-                    Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    Icon(Icons.video_camera_back, color: Colors.white),
-                    Icon(Icons.person_3, color: Colors.white),
-                    Icon(Icons.shopping_bag, color: Colors.white),
-                    Icon(Icons.notifications, color: Colors.white),
-                    Icon(Icons.menu, color: Colors.white),
-                  ],
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start, children: [
-                  SizedBox(height: 20),
-                  Container(
-                      height: 10,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                      )),
-                ]),
-                Row(
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(width: 100),
-                      Container(
-                        height: 30,
-                        width: 210,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          'Whats on your mind?',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(width: 100),
-                      Icon(
-                        Icons.photo,
-                        color: Colors.white,
-                      ),
-                    ]),
-                SizedBox(height: 20),
-                SingleChildScrollView(
+        home:  LuckyGame()//Goldapphm()
+        // Scaffold(
+        //   appBar: AppBar(
+        //     leading: CircleAvatar(
+        //       // radius: ,
+        //       // backgroundColor: ,
+        //       // child: ,
+        //       backgroundImage: AssetImage('assets/googlemap.jpg'),
+        //     ),
+        //     title: CircleAvatar(
+        //       backgroundImage: AssetImage('assets/pic.jpeg'),
+        //     ),
+        //   ),
+        //     backgroundColor: Colors.white,//const Color.fromARGB(255, 37, 45, 7),
+        // body: Column(
+        //   //SingleChildScrollView(scrollDirection: Axis.horizontal),
+        //   children: [
+        //     SizedBox(height: 10),
+        //     Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //       children: [
+        //         SizedBox(height: 10),
+        //         Icon(
+        //           Icons.home,
+        //
+        //         ),
+        //         Icon(Icons.video_camera_back, ),
+        //         Icon(Icons.person_3, ),
+        //         Icon(Icons.shopping_bag,),
+        //         Icon(Icons.notifications,),
+        //         Icon(Icons.menu,  ),
+        //       ],
+        //     ),
+        //     Row(
+        //         mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        //
+        //       Container(
+        //           height: 10,
+        //           width: 100,
+        //           decoration: BoxDecoration(
+        //             borderRadius: BorderRadius.circular(15),
+        //           )),
+        //     ]),
+        //     Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //         children: [
+        //           CircleAvatar(
+        //             radius: 25,
+        //             backgroundColor: Colors.blue,
+        //           ),Container(
+        //             height: 30,
+        //             width: 210,
+        //             decoration: BoxDecoration(
+        //               color: Colors.green,
+        //               borderRadius: BorderRadius.circular(15),
+        //             ),
+        //             child: Center(
+        //               child: Text(
+        //                 'Whats on your mind?',
+        //                 style: TextStyle(
+        //                     color: Colors.black,
+        //                     fontSize: 15,
+        //                     fontWeight: FontWeight.bold),
+        //               ),
+        //             ),
+        //           ),Icon(
+        //             Icons.photo,
+        //             color: Colors.grey,
+        //           ),
+        //         ]),
+        //     SizedBox(height: 20),
+        //     SingleChildScrollView(
+        //
+        //       scrollDirection: Axis.horizontal, child: Row(spacing: 10, children: [
+        //       //SingleChildScrollView(scrollDirection: Axis.horizontal),
+        //       SizedBox(width: 10),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //               image: DecorationImage(
+        //                   image: AssetImage('assets/pic.jpeg')
+        //                   ,fit:BoxFit.cover
+        //               )
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //             image: DecorationImage(
+        //                 image: AssetImage('assets/googlemap.jpg')
+        //                 ,fit:BoxFit.cover
+        //             )
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundImage: AssetImage('assets/pic.jpeg'),
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //       Container(
+        //           height: 250,
+        //           width: 170,
+        //           decoration: BoxDecoration(
+        //             color: Colors.grey,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //           child: Column(children: [
+        //             SizedBox(height: 10),
+        //             CircleAvatar(
+        //               radius: 30,
+        //               backgroundColor: Colors.deepOrange,
+        //             ),
+        //             Text(''),
+        //           ])),
+        //     ]),
+        //     ),
+        //
+        //
+        //     Padding(
+        //       padding: EdgeInsets.all(18),
+        //       child: Row(children:[
+        //         SizedBox(width: 10,),
+        //         CircleAvatar(),
+        //         SizedBox(width:5),
+        //         Column(children:[
+        //           Text("User name",),
+        //           Text('last time')
+        //         ]),
+        //         Spacer(),
+        //         //                  SizedBox(width: 50,),
+        //         Icon(Icons.more_horiz),
+        //         Icon(Icons.close_outlined),
+        //         SizedBox(width: 10,)
+        //       ]),
+        //     ),
+        //
+        //     Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //       children: [
+        //         Row(children: [
+        //           Icon(Icons.thumb_up_alt_outlined),
+        //           Text('Like'),
+        //         ],),
+        //         Row(children: [
+        //           Icon(Icons.comment_bank),
+        //           Text('Comment'),
+        //
+        //         ],),
+        //         Row(children: [
+        //         Icon(Icons.share),
+        //         Text('Share')
+        //
+        //       ],)
+        //     ],)
+        //   ],
+        //
+        // )
+        // ),
+            // appBar: AppBar(
+            //   backgroundColor: const Color.fromARGB(255, 55, 110, 110),
+            //   actions: [
+            //     Icon(
+            //       Icons.add_circle,
+            //       color: Colors.white,
+            //       size: 40,
+            //     ),
+            //     SizedBox(width: 40),
+            //     Icon(Icons.search, color: Colors.white, size: 40),
+            //     SizedBox(width: 40),
+            //     Icon(Icons.message_sharp, color: Colors.white, size: 40),
+            //     SizedBox(width: 40),
+            //   ],
+            //   title: Text(
+            //     'facebook',
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //       fontSize: 50,
+            //       fontWeight: FontWeight.bold,
+            //     ),
+            //   ),
+            //   centerTitle: false,
+            // ),
+            //
+            // ------------------------
+            // body:Center(child: FloatingActionButton(onPressed: (){
+            //   //--get package---
+            //   Get.defaultDialog(
+            //     title: 'Confirmation',
+            //     backgroundColor: Colors.purple,
+            //       content: Text('Are you sure, you want to exit it?'),
+            //       actions: [
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //           children: [
+            //           Container(
+            //               color: Colors.white,
+            //               child: TextButton(onPressed: (){}, child: Text('YES'))),
+            //           Container(
+            //             color: Colors.white,
+            //             child: TextButton(
+            //
+            //                 onPressed: (){
+            //                   Get.back();
+            //                   //Navigator.pop(context);
+            //                 }, child: Text('NO')),
+            //           ),
+            //         ],)
+            //
+            //     ]
+            //   );
+            // },backgroundColor: Colors.purple,),)
+   //    )
 
-                 scrollDirection: Axis.horizontal, child: Row(spacing: 10, children: [
-                    //SingleChildScrollView(scrollDirection: Axis.horizontal),
-                    SizedBox(width: 10),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                    Container(
-                        height: 250,
-                        width: 170,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Column(children: [
-                          SizedBox(height: 10),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.deepOrange,
-                          ),
-                          Text(''),
-                        ])),
-                  ]),
-                )
-              ],
-            )));
+      );
   }
 }
