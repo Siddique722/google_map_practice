@@ -74,20 +74,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
-class CostumMarker extends StatefulWidget {
-  const CostumMarker({super.key});
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class CustomMarker extends StatefulWidget {
+  const CustomMarker({Key? key}) : super(key: key);
 
   @override
-  State<CostumMarker> createState() => _CostumMarkerState();
+  State<CustomMarker> createState() => _CustomMarkerState();
 }
 
-class _CostumMarkerState extends State<CostumMarker> {
+class _CustomMarkerState extends State<CustomMarker> {
   List<String> markerImages = [
-    'images/1.png',
-    'images/2.png',
-    'images/3.png',
-    'images/4.png',
+    'assets/images/1.png',
+    'assets/images/2.png',
+    'assets/images/3.png',
+    'assets/images/4.png',
   ];
 
   List<Marker> markers = [];
@@ -105,43 +111,58 @@ class _CostumMarkerState extends State<CostumMarker> {
   @override
   void initState() {
     super.initState();
-    initialCameraPosition = CameraPosition(
+    initialCameraPosition = const CameraPosition(
       target: LatLng(30.3753, 69.3451), // Roughly center of Pakistan
-      zoom: 5.5,  // Adjusted zoom to show all markers
+      zoom: 5.5,
     );
     loadData();
   }
 
+  /// Loads custom markers
   Future<void> loadData() async {
+    List<Marker> tempMarkers = [];
+
     for (int i = 0; i < markerImages.length; i++) {
-      final Uint8List markerIcon = await getBytesFromAssets(markerImages[i], 100);
+      final Uint8List? markerIcon = await getBytesFromAssets(markerImages[i], 100);
 
-      markers.add(
-        Marker(
-          markerId: MarkerId(i.toString()),
-          position: coordinates[i],
-          icon: BitmapDescriptor.fromBytes(markerIcon),  // Fixed from markerImages to markerIcon
-          infoWindow: InfoWindow(
-            title: _getCityName(i),  // Added city names to info windows
+      if (markerIcon != null && markerIcon.isNotEmpty) {
+        tempMarkers.add(
+          Marker(
+            markerId: MarkerId(i.toString()),
+            position: coordinates[i],
+            icon: BitmapDescriptor.fromBytes(markerIcon),
+            infoWindow: InfoWindow(title: _getCityName(i)),
           ),
-        ),
-      );
+        );
+      } else {
+        debugPrint("Skipping marker $i due to empty image data.");
+      }
     }
-    setState(() {});
+
+    setState(() {
+      markers = tempMarkers;
+    });
   }
 
-  Future<Uint8List> getBytesFromAssets(String path, int width) async {
-    ByteData data = await rootBundle.load(path);
-    ui.Codec codec = await ui.instantiateImageCodec(
-      data.buffer.asUint8List(),
-      targetWidth: width,  // Changed to targetWidth from targetHeight
-    );
-    ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
-        .buffer
-        .asUint8List();
+  /// Converts an asset image into a Uint8List for Google Maps
+  Future<Uint8List?> getBytesFromAssets(String path, int width) async {
+    try {
+      ByteData data = await rootBundle.load(path);
+      ui.Codec codec = await ui.instantiateImageCodec(
+        data.buffer.asUint8List(),
+        targetWidth: width,
+      );
+      ui.FrameInfo fi = await codec.getNextFrame();
+      return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
+          ?.buffer
+          .asUint8List();
+    } catch (e) {
+      debugPrint("Error loading image $path: $e");
+      return null;
+    }
   }
 
+  /// Returns city names based on index
   String _getCityName(int index) {
     switch (index) {
       case 0:
@@ -153,13 +174,14 @@ class _CostumMarkerState extends State<CostumMarker> {
       case 3:
         return "Peshawar";
       default:
-        return "Position: $index";
+        return "Unknown Location";
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Custom Markers")),
       body: GoogleMap(
         markers: Set<Marker>.of(markers),
         initialCameraPosition: initialCameraPosition,
@@ -170,3 +192,99 @@ class _CostumMarkerState extends State<CostumMarker> {
     );
   }
 }
+
+// class CostumMarker extends StatefulWidget {
+//   const CostumMarker({super.key});
+//
+//   @override
+//   State<CostumMarker> createState() => _CostumMarkerState();
+// }
+//
+// class _CostumMarkerState extends State<CostumMarker> {
+//   List<String> markerImages = [
+//     'images/1.png',
+//     'images/2.png',
+//     'images/3.png',
+//     'images/4.png',
+//   ];
+//
+//   List<Marker> markers = [];
+//
+//   // Coordinates of major Pakistani cities
+//   List<LatLng> coordinates = [
+//     LatLng(24.8607, 67.0011),  // Karachi
+//     LatLng(31.5204, 74.3587),  // Lahore
+//     LatLng(33.6844, 73.0479),  // Islamabad
+//     LatLng(34.0151, 71.5249),  // Peshawar
+//   ];
+//
+//   late CameraPosition initialCameraPosition;
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     initialCameraPosition = CameraPosition(
+//       target: LatLng(30.3753, 69.3451), // Roughly center of Pakistan
+//       zoom: 5.5,  // Adjusted zoom to show all markers
+//     );
+//     loadData();
+//   }
+//
+//   Future<void> loadData() async {
+//     for (int i = 0; i < markerImages.length; i++) {
+//       final Uint8List markerIcon = await getBytesFromAssets(markerImages[i], 100);
+//
+//       markers.add(
+//         Marker(
+//           markerId: MarkerId(i.toString()),
+//           position: coordinates[i],
+//           icon: BitmapDescriptor.fromBytes(markerIcon),  // Fixed from markerImages to markerIcon
+//           infoWindow: InfoWindow(
+//             title: _getCityName(i),  // Added city names to info windows
+//           ),
+//         ),
+//       );
+//     }
+//     setState(() {});
+//   }
+//
+//   Future<Uint8List> getBytesFromAssets(String path, int width) async {
+//     ByteData data = await rootBundle.load(path);
+//     ui.Codec codec = await ui.instantiateImageCodec(
+//       data.buffer.asUint8List(),
+//       targetWidth: width,  // Changed to targetWidth from targetHeight
+//     );
+//     ui.FrameInfo fi = await codec.getNextFrame();
+//     return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+//         .buffer
+//         .asUint8List();
+//   }
+//
+//   String _getCityName(int index) {
+//     switch (index) {
+//       case 0:
+//         return "Karachi";
+//       case 1:
+//         return "Lahore";
+//       case 2:
+//         return "Islamabad";
+//       case 3:
+//         return "Peshawar";
+//       default:
+//         return "Position: $index";
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: GoogleMap(
+//         markers: Set<Marker>.of(markers),
+//         initialCameraPosition: initialCameraPosition,
+//         onMapCreated: (GoogleMapController controller) {
+//           // Controller handling can be added here if needed
+//         },
+//       ),
+//     );
+//   }
+// }

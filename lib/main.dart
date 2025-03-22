@@ -124,6 +124,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:untitled/costum-markers.dart';
 import 'package:untitled/get-class.dart';
 
 void main() {
@@ -137,7 +138,33 @@ class MyApp extends StatelessWidget {
     return
       GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home:  LuckyGame()//Goldapphm()
+        home:
+        //LuckyGame()//Goldapphm()
+        // Scaffold(
+        //   body: Column(children: [
+        //     ListTile(
+        //       leading: CircleAvatar(),
+        //       title: Text('Sender Name'),
+        //       subtitle: Text('last mesage'),
+        //       trailing: Text('09:00PM'),
+        //     ),
+        //     Card(
+        //       color: Colors.blue,
+        //       child:  ListTile(
+        //           leading: CircleAvatar(),
+        //           title: Text('Sender Name'),
+        //           subtitle: Text('last mesage'),
+        //           trailing: Column(children: [
+        //             Text('09:00PM'),
+        //             CircleAvatar(radius: 8,backgroundColor: Colors.green,)
+        //           ],)
+        //       ),
+        //     )
+        //
+        //   ],),
+        //
+        // )
+        CustomMarker()
         // Scaffold(
         //   appBar: AppBar(
         //     leading: CircleAvatar(
