@@ -107,15 +107,15 @@ class _CustomMarkerState extends State<CustomMarker> {
     LatLng(34.0151, 71.5249),  // Peshawar
   ];
 
-  late CameraPosition initialCameraPosition;
+  static CameraPosition initialCameraPosition= initialCameraPosition = const CameraPosition(
+    target: LatLng(30.3753, 69.3451), // Roughly center of Pakistan
+    zoom: 5.5,
+  );
 
   @override
   void initState() {
     super.initState();
-    initialCameraPosition = const CameraPosition(
-      target: LatLng(30.3753, 69.3451), // Roughly center of Pakistan
-      zoom: 5.5,
-    );
+
     loadData();
   }
 
@@ -185,6 +185,9 @@ class _CustomMarkerState extends State<CustomMarker> {
       appBar: AppBar(title: const Text("Custom Markers")),
       body: GoogleMap(
         markers: Set<Marker>.of(markers),
+        mapType: MapType.normal,
+        myLocationButtonEnabled: false,
+        myLocationEnabled: false,
         initialCameraPosition: initialCameraPosition,
         onMapCreated: (GoogleMapController controller) {
           // Controller handling can be added here if needed
