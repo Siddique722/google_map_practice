@@ -68,7 +68,9 @@
 //   }
 // }
 
-
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -89,7 +91,7 @@ class CustomMarker extends StatefulWidget {
 }
 
 class _CustomMarkerState extends State<CustomMarker> {
-  final Completer<GoogleMapController> _controller=Completer();
+  Completer<GoogleMapController> _controller=Completer();
   List<String> markerImages = [
     'assets/images/1.png',
     'assets/images/2.png',
@@ -190,6 +192,7 @@ class _CustomMarkerState extends State<CustomMarker> {
         myLocationEnabled: false,
         initialCameraPosition: initialCameraPosition,
         onMapCreated: (GoogleMapController controller) {
+         _controller.complete(controller);
           // Controller handling can be added here if needed
         },
       ),
