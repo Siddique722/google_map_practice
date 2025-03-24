@@ -93,10 +93,10 @@ class CustomMarker extends StatefulWidget {
 class _CustomMarkerState extends State<CustomMarker> {
   Completer<GoogleMapController> _controller=Completer();
   List<String> images = [
-    'image/1.png',
-    'image/2.png',
-    'image/3.png',
-    'image/4.png',
+    'assets/images/1.png',
+    'assets/images/2.png',
+    'assets/images/3.png',
+    'assets/images/4.png',
   ];
 
   List<Marker> markers = [
@@ -170,14 +170,10 @@ class _CustomMarkerState extends State<CustomMarker> {
 
 
     }
-
-    setState(() {
-      //markers = tempMarkers;
-    });
   }
   /// Converts an asset image into a Uint8List for Google Maps
   Future<Uint8List?> getBytesFromAssets(String path, int width) async {
-    try {
+
       ByteData data = await rootBundle.load(path);
       ui.Codec codec = await ui.instantiateImageCodec(
         data.buffer.asUint8List(),
@@ -187,10 +183,7 @@ class _CustomMarkerState extends State<CustomMarker> {
       return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
           ?.buffer
           .asUint8List();
-    } catch (e) {
-      debugPrint("Error loading image $path: $e");
-      return null;
-    }
+
   }
 
   /// Returns city names based on index
