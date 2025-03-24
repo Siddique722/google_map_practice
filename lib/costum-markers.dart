@@ -89,6 +89,7 @@ class CustomMarker extends StatefulWidget {
 }
 
 class _CustomMarkerState extends State<CustomMarker> {
+  final Completer<GoogleMapController> _controller=Completer();
   List<String> markerImages = [
     'assets/images/1.png',
     'assets/images/2.png',
