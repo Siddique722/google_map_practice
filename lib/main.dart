@@ -522,6 +522,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:untitled/costum-markers.dart';
+import 'package:untitled/custum-indo-window.dart';
 
 void main() {
   runApp(MyApp());
@@ -533,7 +534,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:CustomMarker()
+        home: CustomMarkerInfoWindow()//CustomMarker()
         // Scaffold(
         //   body: SingleChildScrollView(
         //     child: Column(
