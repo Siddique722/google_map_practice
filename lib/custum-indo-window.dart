@@ -23,7 +23,12 @@ class _CustomMarkerInfoWindowState extends State<CustomMarkerInfoWindow> {
     'image/3.png',
     'image/4.png',
   ];
-
+List<String> restaurantImages=[
+  'image/1.png',
+  'image/2.png',
+  'image/3.png',
+  'image/4.png',
+];
   List<Marker> markers = [];
 
   // Coordinates of major Pakistani cities
@@ -44,7 +49,14 @@ class _CustomMarkerInfoWindowState extends State<CustomMarkerInfoWindow> {
     super.initState();
     loadData();
   }
+List<String> phone=[
+  '123',
+  '456',
+  '789',
+  '987'
 
+
+];
   /// Loads custom markers with custom icons and info windows
   Future<void> loadData() async {
     try {
@@ -64,7 +76,7 @@ class _CustomMarkerInfoWindowState extends State<CustomMarkerInfoWindow> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: const [
                         BoxShadow(
@@ -91,8 +103,8 @@ class _CustomMarkerInfoWindowState extends State<CustomMarkerInfoWindow> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        Text(
-                          "Lat: ${coordinates[i].latitude}, Lng: ${coordinates[i].longitude}",
+                        Text(phone[i].toString(),
+                          //"Lat: ${coordinates[i].latitude}, Lng: ${coordinates[i].longitude}",
                           style: const TextStyle(fontSize: 12),
                         ),
                       ],
@@ -191,7 +203,7 @@ class _CustomMarkerInfoWindowState extends State<CustomMarkerInfoWindow> {
             controller: _customInfoWindowController,
             height: 200,
             width: 300,
-            offset: 35,
+            //offset: 35,
           ),
         ],
       ),
