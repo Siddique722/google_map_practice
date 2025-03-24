@@ -521,6 +521,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:untitled/costum-markers.dart';
 
 void main() {
   runApp(MyApp());
@@ -532,292 +533,294 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Header
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Updates',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Spacer(),
-                      Icon(Icons.search),
-                      SizedBox(width: 15),
-                      Icon(Icons.more_vert),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 10),
-
-                // Filter buttons
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 30,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 158, 248, 160),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'All',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Container(
-                        height: 30,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 183, 244, 184),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Status',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 19),
-                      Container(
-                        height: 30,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 177, 242, 178),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Channels',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 30),
-
-                // Status section
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Status',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-
-                // Horizontal scroll view with fixed height
-                SizedBox(
-                  height: 266, // Container height (250) + padding (16)
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        // Add Status
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 250,
-                            width: 140,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 203, 175, 175),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CircleAvatar(
-                                    radius: 20,
-                                    backgroundImage: AssetImage('assets/beni.jpg'),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Add Status',
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        // Example status item
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 250,
-                            width: 140,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 177, 173, 173),
-                              borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: AssetImage('assets/book.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CircleAvatar(
-                                    radius: 20,
-                                    backgroundImage: AssetImage('assets/yupp.jpg'),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Fatimaa',
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: Color.fromARGB(255, 241, 241, 241),
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        // Add remaining status containers here following the same pattern
-                      ],
-                    ),
-                  ),
-                ),
-
-                SizedBox(height: 10),
-
-                // Channels section
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Channels',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        'Explore',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                          color: Color.fromARGB(255, 68, 186, 72),
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(
-                        Icons.chevron_right,
-                        color: Color.fromARGB(255, 68, 172, 71),
-                      ),
-                    ],
-                  ),
-                ),
-
-                // Channel item
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 10,
-                        backgroundImage: AssetImage('assets/no.png'),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Haris Baloch',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'Yesterday',
-                                  style: TextStyle(
-                                    fontSize: 12, // Increased from 5 for readability
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Icon(Icons.photo, color: Colors.grey, size: 16),
-                                SizedBox(width: 5),
-                                Text(
-                                  'Photo',
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                Spacer(),
-                                CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                  child: Text(
-                                    '18',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )    );
+        home:CustomMarker()
+        // Scaffold(
+        //   body: SingleChildScrollView(
+        //     child: Column(
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       children: [
+        //         // Header
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Row(
+        //             children: [
+        //               Text(
+        //                 'Updates',
+        //                 style: TextStyle(
+        //                   fontSize: 40,
+        //                   fontWeight: FontWeight.w500,
+        //                   color: Colors.black,
+        //                 ),
+        //               ),
+        //               Spacer(),
+        //               Icon(Icons.search),
+        //               SizedBox(width: 15),
+        //               Icon(Icons.more_vert),
+        //             ],
+        //           ),
+        //         ),
+        //
+        //         SizedBox(height: 10),
+        //
+        //         // Filter buttons
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Row(
+        //             children: [
+        //               Container(
+        //                 height: 30,
+        //                 width: 50,
+        //                 decoration: BoxDecoration(
+        //                   color: Color.fromARGB(255, 158, 248, 160),
+        //                   borderRadius: BorderRadius.circular(15),
+        //                 ),
+        //                 child: Center(
+        //                   child: Text(
+        //                     'All',
+        //                     style: TextStyle(fontSize: 20, color: Colors.black),
+        //                   ),
+        //                 ),
+        //               ),
+        //               SizedBox(width: 10),
+        //               Container(
+        //                 height: 30,
+        //                 width: 80,
+        //                 decoration: BoxDecoration(
+        //                   color: Color.fromARGB(255, 183, 244, 184),
+        //                   borderRadius: BorderRadius.circular(15),
+        //                 ),
+        //                 child: Center(
+        //                   child: Text(
+        //                     'Status',
+        //                     style: TextStyle(fontSize: 20, color: Colors.black),
+        //                   ),
+        //                 ),
+        //               ),
+        //               SizedBox(width: 19),
+        //               Container(
+        //                 height: 30,
+        //                 width: 100,
+        //                 decoration: BoxDecoration(
+        //                   color: Color.fromARGB(255, 177, 242, 178),
+        //                   borderRadius: BorderRadius.circular(15),
+        //                 ),
+        //                 child: Center(
+        //                   child: Text(
+        //                     'Channels',
+        //                     style: TextStyle(fontSize: 20, color: Colors.black),
+        //                   ),
+        //                 ),
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //
+        //         SizedBox(height: 30),
+        //
+        //         // Status section
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Text(
+        //             'Status',
+        //             style: TextStyle(
+        //               fontSize: 20,
+        //               fontWeight: FontWeight.w700,
+        //               color: Colors.black,
+        //             ),
+        //           ),
+        //         ),
+        //
+        //         // Horizontal scroll view with fixed height
+        //         SizedBox(
+        //           height: 266, // Container height (250) + padding (16)
+        //           child: SingleChildScrollView(
+        //             scrollDirection: Axis.horizontal,
+        //             child: Row(
+        //               children: [
+        //                 // Add Status
+        //                 Padding(
+        //                   padding: const EdgeInsets.all(8.0),
+        //                   child: Container(
+        //                     height: 250,
+        //                     width: 140,
+        //                     decoration: BoxDecoration(
+        //                       color: Color.fromARGB(255, 203, 175, 175),
+        //                       borderRadius: BorderRadius.circular(15),
+        //                     ),
+        //                     child: Column(
+        //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //                       children: [
+        //                         Padding(
+        //                           padding: const EdgeInsets.all(8.0),
+        //                           child: CircleAvatar(
+        //                             radius: 20,
+        //                             backgroundImage: AssetImage('assets/beni.jpg'),
+        //                           ),
+        //                         ),
+        //                         Padding(
+        //                           padding: const EdgeInsets.all(8.0),
+        //                           child: Text(
+        //                             'Add Status',
+        //                             style: TextStyle(
+        //                               fontSize: 13,
+        //                               color: Colors.black,
+        //                               fontWeight: FontWeight.w600,
+        //                             ),
+        //                           ),
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ),
+        //                 ),
+        //                 // Example status item
+        //                 Padding(
+        //                   padding: const EdgeInsets.all(8.0),
+        //                   child: Container(
+        //                     height: 250,
+        //                     width: 140,
+        //                     decoration: BoxDecoration(
+        //                       color: Color.fromARGB(255, 177, 173, 173),
+        //                       borderRadius: BorderRadius.circular(15),
+        //                       image: DecorationImage(
+        //                         image: AssetImage('assets/book.jpg'),
+        //                         fit: BoxFit.cover,
+        //                       ),
+        //                     ),
+        //                     child: Column(
+        //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //                       children: [
+        //                         Padding(
+        //                           padding: const EdgeInsets.all(8.0),
+        //                           child: CircleAvatar(
+        //                             radius: 20,
+        //                             backgroundImage: AssetImage('assets/yupp.jpg'),
+        //                           ),
+        //                         ),
+        //                         Padding(
+        //                           padding: const EdgeInsets.all(8.0),
+        //                           child: Text(
+        //                             'Fatimaa',
+        //                             style: TextStyle(
+        //                               fontSize: 13,
+        //                               color: Color.fromARGB(255, 241, 241, 241),
+        //                               fontWeight: FontWeight.w600,
+        //                             ),
+        //                           ),
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ),
+        //                 ),
+        //                 // Add remaining status containers here following the same pattern
+        //               ],
+        //             ),
+        //           ),
+        //         ),
+        //
+        //         SizedBox(height: 10),
+        //
+        //         // Channels section
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Row(
+        //             children: [
+        //               Text(
+        //                 'Channels',
+        //                 style: TextStyle(
+        //                   fontSize: 30,
+        //                   fontWeight: FontWeight.w400,
+        //                   color: Colors.black,
+        //                 ),
+        //               ),
+        //               Spacer(),
+        //               Text(
+        //                 'Explore',
+        //                 style: TextStyle(
+        //                   fontSize: 15,
+        //                   fontWeight: FontWeight.w400,
+        //                   color: Color.fromARGB(255, 68, 186, 72),
+        //                 ),
+        //               ),
+        //               SizedBox(width: 10),
+        //               Icon(
+        //                 Icons.chevron_right,
+        //                 color: Color.fromARGB(255, 68, 172, 71),
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //
+        //         // Channel item
+        //         Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: Row(
+        //             crossAxisAlignment: CrossAxisAlignment.center,
+        //             children: [
+        //               CircleAvatar(
+        //                 radius: 10,
+        //                 backgroundImage: AssetImage('assets/no.png'),
+        //               ),
+        //               SizedBox(width: 10),
+        //               Expanded(
+        //                 child: Column(
+        //                   crossAxisAlignment: CrossAxisAlignment.start,
+        //                   children: [
+        //                     Row(
+        //                       children: [
+        //                         Text(
+        //                           'Haris Baloch',
+        //                           style: TextStyle(
+        //                             fontSize: 20,
+        //                             fontWeight: FontWeight.normal,
+        //                             color: Colors.black,
+        //                           ),
+        //                         ),
+        //                         Spacer(),
+        //                         Text(
+        //                           'Yesterday',
+        //                           style: TextStyle(
+        //                             fontSize: 12, // Increased from 5 for readability
+        //                             fontWeight: FontWeight.w300,
+        //                             color: Colors.green,
+        //                           ),
+        //                         ),
+        //                       ],
+        //                     ),
+        //                     Row(
+        //                       children: [
+        //                         Icon(Icons.photo, color: Colors.grey, size: 16),
+        //                         SizedBox(width: 5),
+        //                         Text(
+        //                           'Photo',
+        //                           style: TextStyle(
+        //                             fontSize: 10,
+        //                             color: Colors.grey,
+        //                           ),
+        //                         ),
+        //                         Spacer(),
+        //                         CircleAvatar(
+        //                           radius: 8,
+        //                           backgroundColor: Colors.green,
+        //                           child: Text(
+        //                             '18',
+        //                             style: TextStyle(
+        //                               color: Colors.white,
+        //                               fontSize: 10,
+        //                             ),
+        //                           ),
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ],
+        //                 ),
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // )
+    );
   }
 }

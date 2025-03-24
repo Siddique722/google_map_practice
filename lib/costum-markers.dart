@@ -92,14 +92,16 @@ class CustomMarker extends StatefulWidget {
 
 class _CustomMarkerState extends State<CustomMarker> {
   Completer<GoogleMapController> _controller=Completer();
-  List<String> markerImages = [
-    'assets/images/1.png',
-    'assets/images/2.png',
-    'assets/images/3.png',
-    'assets/images/4.png',
+  List<String> images = [
+    'image/1.png',
+    'image/2.png',
+    'image/3.png',
+    'image/4.png',
   ];
 
-  List<Marker> markers = [];
+  List<Marker> markers = [
+
+  ];
 
   // Coordinates of major Pakistani cities
   List<LatLng> coordinates = [
@@ -121,32 +123,58 @@ class _CustomMarkerState extends State<CustomMarker> {
     loadData();
   }
 
-  /// Loads custom markers
+  /// Loads custom markers for showing only default location icon
+  // Future<void> loadData() async {
+  //  // List<Marker> tempMarkers = [];
+  //
+  //   for (int i = 0; i < images.length; i++) {
+  //     //final Uint8List? markerIcon = await getBytesFromAssets(images[i], 100);
+  //     markers.add(
+  //       Marker(markerId: MarkerId(i.toString()),
+  //       position: coordinates[i],
+  //         icon: BitmapDescriptor.defaultMarker,
+  //         infoWindow: InfoWindow(
+  //           title: _getCityName(i)
+  //         )
+  //       )
+  //     );
+  //     setState(() {
+  //
+  //     });
+  //
+  //
+  //   }
+  //
+  //   setState(() {
+  //     //markers = tempMarkers;
+  //   });
+  // }
+
+  /// Loads custom markers for showing  costum location icon
   Future<void> loadData() async {
-    List<Marker> tempMarkers = [];
+    // List<Marker> tempMarkers = [];
+    for (int i = 0; i < images.length; i++) {
+     final Uint8List? markerIcon = await getBytesFromAssets(images[i], 100);
+      markers.add(
+          Marker(markerId: MarkerId(i.toString()),
+              position: coordinates[i],
+              icon: BitmapDescriptor.fromBytes(markerIcon!),
+              infoWindow: InfoWindow(
+                  title: _getCityName(i)
+              )
+          )
+      );
+      setState(() {
 
-    for (int i = 0; i < markerImages.length; i++) {
-      final Uint8List? markerIcon = await getBytesFromAssets(markerImages[i], 100);
+      });
 
-      if (markerIcon != null && markerIcon.isNotEmpty) {
-        tempMarkers.add(
-          Marker(
-            markerId: MarkerId(i.toString()),
-            position: coordinates[i],
-            icon: BitmapDescriptor.fromBytes(markerIcon),
-            infoWindow: InfoWindow(title: _getCityName(i)),
-          ),
-        );
-      } else {
-        debugPrint("Skipping marker $i due to empty image data.");
-      }
+
     }
 
     setState(() {
-      markers = tempMarkers;
+      //markers = tempMarkers;
     });
   }
-
   /// Converts an asset image into a Uint8List for Google Maps
   Future<Uint8List?> getBytesFromAssets(String path, int width) async {
     try {
