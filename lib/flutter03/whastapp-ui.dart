@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/custum-indo-window.dart';
 
 
 class WhatsappUi extends StatefulWidget {
@@ -13,6 +14,39 @@ class _WhatsappUiState extends State<WhatsappUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
+      drawer: Drawer(
+        backgroundColor: Colors.deepPurpleAccent,
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepPurpleAccent
+              ),
+             currentAccountPicture: CircleAvatar(),
+                accountName: Text('data'), 
+                accountEmail: Text('data')),
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CustomMarkerInfoWindow()));
+
+              },
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            )
+
+            
+          ],
+        ),
+      ),
       body: Column(children: [
         Expanded(
             flex: 90,
