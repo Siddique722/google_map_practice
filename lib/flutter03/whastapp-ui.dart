@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/custum-indo-window.dart';
 
 
@@ -24,8 +25,10 @@ class _WhatsappUiState extends State<WhatsappUi> {
                 color: Colors.deepPurpleAccent
               ),
              currentAccountPicture: CircleAvatar(),
-                accountName: Text('data'), 
-                accountEmail: Text('data')),
+                accountName: Text('data',style:GoogleFonts.aboreto(
+                  //fontSize: 50
+                )),
+                accountEmail: Text('data',style: GoogleFonts.allison(),)),
             ListTile(
               onTap: (){
                 Navigator.pop(context);
